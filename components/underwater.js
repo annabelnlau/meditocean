@@ -14,8 +14,8 @@ export default class Underwater extends React.Component {
 
     const { AudioModule } = NativeModules;
     AudioModule.playEnvironmental({
-      source: asset('underwater_sound_trimmed.mp3'),
-      volume: 0.3, // play at 3/10 original volume
+      source: asset('water_sounds.m4a'),
+      volume: 1,
     });
 
     Environment.setBackgroundImage(asset('underwater.jpg'));
@@ -23,7 +23,7 @@ export default class Underwater extends React.Component {
   render() {
     return (
       <Text>
-      Hi from Underwater
+        Hi from Underwater
       </Text>
     );
   }

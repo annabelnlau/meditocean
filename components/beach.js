@@ -27,7 +27,7 @@ export default class Beach extends React.Component {
         const { AudioModule } = NativeModules;
         AudioModule.playEnvironmental({
             source: asset('beach_waves.mp3'),
-            volume: 0.3, // play at 3/10 original volume
+            volume: 1, // play at 3/10 original volume
         });
         console.log(AudioModule, "AUDIO MODULE")
     }
