@@ -31,23 +31,19 @@ export default class Relax extends React.Component {
         return (
             !this.state.buttonClicked ?
                 <View style={styles.panel}>
-                    <View style={styles.greetingBox}>
-                        <VrButton onClick={this.handleClick}>
-                            <Text style={styles.greeting}>
-                                Relax
+                    <VrButton onClick={this.handleClick}>
+                        <Text style={styles.greeting}>
+                            Relax
                             </Text>
-                        </VrButton>
-                    </View>
+                    </VrButton>
                 </View>
                 :
                 <View style={styles.panel}>
-                    <View>
-                        <VrButton>
-                            <Text style={styles.greeting}>
-                                {this.state.seconds}
-                            </Text>
-                        </VrButton>
-                    </View>
+                    <VrButton>
+                        <Text style={styles.greeting}>
+                            {this.state.seconds}
+                        </Text>
+                    </VrButton>
                 </View>
         );
     }

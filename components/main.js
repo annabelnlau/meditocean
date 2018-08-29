@@ -16,6 +16,7 @@ export default class Main extends React.Component {
       source: asset('beach_waves.mp3'),
       volume: 2,
     });
+    
     Environment.setBackgroundImage(asset('beach_view.jpg'));
   }
 

@@ -20,7 +20,7 @@ function init(bundle, parent, options = {}) {
     ...options,
   });
 
-  // Render component to the new surface flat we just created
+  // Render component to the new flat surfaces we just created
   r360.renderToSurface(
     r360.createRoot('UnderwaterSurface'),
     leftPanel,
