@@ -14,32 +14,10 @@ import {
 // Components
 import Underwater from './underwater';
 import Seagull from './seagull';
-import UnderwaterEntry from './underwaterEntry';
+import UnderwaterSurface from './underwaterSurface';
+import Breathe from './breathe';
 
 export default class Beach extends React.Component {
-    state = {
-        buttonClicked: false,
-        seconds: 61,
-    }
-
-    handleClick = () => {
-        this.setState({ buttonClicked: true });
-        this.decrementClock()
-        this.interval = setInterval(this.decrementClock, 1000);
-    };
-
-    decrementClock = () => {
-        this.setState({ seconds: this.state.seconds - 1 });
-        if (this.state.seconds <= 0) {
-            clearInterval(this.interval);
-            this.setState({ buttonClicked: false });
-        }
-    }
-
-    resetTimer = () => {
-        this.setState({ buttonClicked: false, seconds: 5 })
-    }
-
     componentDidMount() {
         const { AudioModule } = NativeModules;
         AudioModule.playEnvironmental({
@@ -49,30 +27,10 @@ export default class Beach extends React.Component {
     }
     render() {
         return (
-            !this.state.buttonClicked ?
-                <View style={styles.panel}>
-                    <View style={styles.greetingBox}>
-                        <VrButton onClick={this.handleClick}>
-                            <Text style={styles.greeting}>
-                                Breathe
-                            </Text>
-                        </VrButton>
-                    </View>
-                    {/* <Seagull /> */}
-                    {/* <UnderwaterEntry /> */}
-                </View>
-                :
-                <View style={styles.panel}>
-                    <View>
-                        <VrButton>
-                            <Text style={styles.greeting}>
-                                {this.state.seconds}
-                            </Text>
-                        </VrButton>
-                    </View>
-                    {/* <Seagull /> */}
-                </View>
-
+            <View>
+                <Breathe />
+                <Seagull />
+            </View>
         );
     }
 };
@@ -97,7 +55,7 @@ const styles = StyleSheet.create({
     greeting: {
         fontSize: 180,
         color: 'rgb(5, 93, 119)',
-         justifyContent: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
     },
     viewStandard: {

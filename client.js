@@ -20,7 +20,7 @@ function init(bundle, parent, options = {}) {
   );
 
   r360.renderToSurface(
-    r360.createRoot('UnderwaterEntry'),
+    r360.createRoot('UnderwaterSurface'),
     leftPanel,
   );
 
