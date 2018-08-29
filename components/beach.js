@@ -13,6 +13,7 @@ import {
 
 // Components
 import Underwater from './underwater';
+import Seagull from './seagull';
 
 export default class Beach extends React.Component {
     state = {
@@ -53,9 +54,10 @@ export default class Beach extends React.Component {
                         <VrButton onClick={this.handleClick}>
                             <Text style={styles.greeting}>
                                 Meditate
-                </Text>
+                            </Text>
                         </VrButton>
                     </View>
+                    <Seagull />
                 </View>
                 :
                 <View style={styles.panel}>
@@ -66,6 +68,7 @@ export default class Beach extends React.Component {
                             </Text>
                         </VrButton>
                     </View>
+                    <Seagull />
                 </View>
 
         );
