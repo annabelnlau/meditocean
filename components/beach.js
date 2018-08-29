@@ -17,11 +17,26 @@ import Underwater from './underwater';
 export default class Beach extends React.Component {
     state = {
         buttonClicked: false,
+        seconds: 61,
     }
 
     handleClick = () => {
         this.setState({ buttonClicked: true });
+        this.decrementClock()
+        this.interval = setInterval(this.decrementClock, 1000);
     };
+
+    decrementClock = () => {
+        this.setState({ seconds: this.state.seconds - 1 });
+        if (this.state.seconds <= 0) {
+            clearInterval(this.interval);
+            this.setState({ buttonClicked: false });
+        }
+    }
+
+    resetTimer = () => {
+        this.setState({ buttonClicked: false, seconds: 5 })
+    }
 
     componentDidMount() {
         const { AudioModule } = NativeModules;
@@ -32,14 +47,27 @@ export default class Beach extends React.Component {
     }
     render() {
         return (
-            <View>
-                <VrButton onClick={this.handleClick}>
-                <View>
-                <Image style={{width: 150, height: 150, transform: [{ translate: [10, -300, 0] }] }} source={asset('transparent_box.png')} />
-              </View>
-                </VrButton>
-                {this.state.buttonClicked ? <Underwater /> : <View />}
-            </View>
+            !this.state.buttonClicked ?
+                <View style={styles.panel}>
+                    <View style={styles.greetingBox}>
+                        <VrButton onClick={this.handleClick}>
+                            <Text style={styles.greeting}>
+                                Meditate
+                </Text>
+                        </VrButton>
+                    </View>
+                </View>
+                :
+                <View style={styles.panel}>
+                    <View>
+                        <VrButton>
+                            <Text style={styles.greeting}>
+                                {this.state.seconds}
+                            </Text>
+                        </VrButton>
+                    </View>
+                </View>
+
         );
     }
 };
@@ -47,22 +75,31 @@ export default class Beach extends React.Component {
 const styles = StyleSheet.create({
     panel: {
         // Fill the entire surface
-        width: 2000,
-        height: 2000,
+        width: 1000,
+        height: 600,
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         justifyContent: 'center',
         alignItems: 'center',
     },
-    greetingBox: {
-        padding: 100,
-        width: 500,
-        height: 500,
-
-        // backgroundColor: '#000000',
-        // borderColor: '#639dda',
-        // borderWidth: 2,
-    },
+    // greetingBox: {
+    //     //   padding: 100,
+    //     // backgroundColor: '#000000',
+    //     borderColor: '#639dda',
+    //     borderWidth: 2,
+    //     //   fontSize: 1000,
+    // },
     greeting: {
-        fontSize: 30,
+        fontSize: 150,
+        color: 'rgb(5, 93, 119)',
     },
 });
+
+
+{/* <View>
+<VrButton onClick={this.handleClick}>
+<View>
+<Image style={{width: 150, height: 150, transform: [{ translate: [10, -300, 0] }] }} source={asset('transparent_box.png')} />
+</View>
+</VrButton>
+{this.state.buttonClicked ? <Underwater /> : <View />}
+</View> */}
