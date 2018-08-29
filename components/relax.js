@@ -7,9 +7,6 @@ import {
     VrButton,
 } from 'react-360';
 
-// Components
-// import Seagull from './seagull';
-
 export default class Relax extends React.Component {
     state = {
         buttonClicked: false,
@@ -30,10 +27,6 @@ export default class Relax extends React.Component {
         }
     }
 
-    resetTimer = () => {
-        this.setState({ buttonClicked: false, seconds: 5 })
-    }
-
     render() {
         return (
             !this.state.buttonClicked ?
@@ -44,7 +37,6 @@ export default class Relax extends React.Component {
                                 Relax
                             </Text>
                         </VrButton>
-                        {/* <Seagull /> */}
                     </View>
                 </View>
                 :
@@ -55,14 +47,13 @@ export default class Relax extends React.Component {
                                 {this.state.seconds}
                             </Text>
                         </VrButton>
-                        {/* <Seagull /> */}
                     </View>
                 </View>
-
         );
     }
 };
 
+// React 360's version of styled components
 const styles = StyleSheet.create({
     panel: {
         // Fill the entire surface
