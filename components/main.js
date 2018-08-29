@@ -1,15 +1,13 @@
 import React from 'react';
 
 import {
-  StyleSheet,
-  View,
   asset,
   NativeModules,
+  Environment,
 } from 'react-360';
 
 // Components
-import Beach from './relax';
-import UnderwaterSurface from './underwaterSurface';
+import Relax from './relax';
 
 export default class Main extends React.Component {
   componentDidMount() {
@@ -18,10 +16,12 @@ export default class Main extends React.Component {
       source: asset('beach_waves.mp3'),
       volume: 2,
     });
+    Environment.setBackgroundImage(asset('beach_view.jpg'));
   }
+
   render() {
     return (
-        <Beach />
+        <Relax />
     );
   }
 };

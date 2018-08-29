@@ -10,29 +10,27 @@ import Underwater from './underwater';
 
 export default class UnderwaterSurface extends React.Component {
   state = {
-    buttonClicked: false,
+    clicked: false,
   }
 
   handleClick = () => {
-    this.setState({ buttonClicked: true });
+    this.setState({ clicked: true });
   };
 
   render() {
     return (
       <VrButton onClick={this.handleClick}>
         <View style={styles.oppositeView}>
-          {this.state.buttonClicked ? <Underwater /> : <View />}
+          {this.state.clicked ? <Underwater /> : <View />}
         </View>
       </VrButton>
-
     );
   }
 };
 
 const styles = StyleSheet.create({
   oppositeView: {
-    //transform: [{ translate: [500, -500, 0] }, {rotateY: -260}],
-    width: 10000,
+    width: 15000,
     height: 3000,
     // backgroundColor: 'blue',
     justifyContent: 'center',

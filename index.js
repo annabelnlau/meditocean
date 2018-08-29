@@ -2,26 +2,21 @@ import React from 'react';
 
 import {
   AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-  asset,
-  NativeModules,
-  VrButton,
 } from 'react-360';
 
 // Components
-import Beach from './components/beach';
 import UnderwaterSurface from './components/underwaterSurface';
-import Seagull from './components/seagull';
+import Main from './components/main';
+import AboveWaterSurface from './components/aboveWaterSurface';
 
 export default class RatherBeHere extends React.Component {
   render() {
     return (
-      <Beach />
+      <Main />
     );
   }
 };
 
 AppRegistry.registerComponent('RatherBeHere', () => RatherBeHere);
 AppRegistry.registerComponent('UnderwaterSurface', () => UnderwaterSurface);
+AppRegistry.registerComponent('AboveWaterSurface', () => AboveWaterSurface);
