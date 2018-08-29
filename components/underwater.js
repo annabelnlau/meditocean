@@ -22,9 +22,7 @@ export default class Underwater extends React.Component {
   }
   render() {
     return (
-      <Text>
-        Hi from Underwater
-      </Text>
+      <View />
     );
   }
 };

@@ -8,6 +8,7 @@ import {
     asset,
     NativeModules,
     VrButton,
+    Image,
 } from 'react-360';
 
 // Components
@@ -18,7 +19,6 @@ export default class Beach extends React.Component {
         buttonClicked: false,
     }
 
-
     handleClick = () => {
         this.setState({ buttonClicked: true });
     };
@@ -27,17 +27,16 @@ export default class Beach extends React.Component {
         const { AudioModule } = NativeModules;
         AudioModule.playEnvironmental({
             source: asset('beach_waves.mp3'),
-            volume: 1, // play at 3/10 original volume
+            volume: 2,
         });
-        console.log(AudioModule, "AUDIO MODULE")
     }
     render() {
         return (
             <View>
                 <VrButton onClick={this.handleClick}>
-                    <Text>
-                        Click
-                    </Text>
+                <View>
+                <Image style={{width: 150, height: 150, transform: [{ translate: [10, -300, 0] }] }} source={asset('transparent_box.png')} />
+              </View>
                 </VrButton>
                 {this.state.buttonClicked ? <Underwater /> : <View />}
             </View>
@@ -48,17 +47,20 @@ export default class Beach extends React.Component {
 const styles = StyleSheet.create({
     panel: {
         // Fill the entire surface
-        width: 1000,
-        height: 600,
+        width: 2000,
+        height: 2000,
         backgroundColor: 'rgba(255, 255, 255, 0.4)',
         justifyContent: 'center',
         alignItems: 'center',
     },
     greetingBox: {
-        padding: 20,
-        backgroundColor: '#000000',
-        borderColor: '#639dda',
-        borderWidth: 2,
+        padding: 100,
+        width: 500,
+        height: 500,
+
+        // backgroundColor: '#000000',
+        // borderColor: '#639dda',
+        // borderWidth: 2,
     },
     greeting: {
         fontSize: 30,
