@@ -14,6 +14,7 @@ import {
 // Components
 import Underwater from './underwater';
 import Seagull from './seagull';
+import UnderwaterEntry from './underwaterEntry';
 
 export default class Beach extends React.Component {
     state = {
@@ -53,11 +54,12 @@ export default class Beach extends React.Component {
                     <View style={styles.greetingBox}>
                         <VrButton onClick={this.handleClick}>
                             <Text style={styles.greeting}>
-                                Meditate
+                                Breathe
                             </Text>
                         </VrButton>
                     </View>
-                    <Seagull />
+                    {/* <Seagull /> */}
+                    {/* <UnderwaterEntry /> */}
                 </View>
                 :
                 <View style={styles.panel}>
@@ -68,7 +70,7 @@ export default class Beach extends React.Component {
                             </Text>
                         </VrButton>
                     </View>
-                    <Seagull />
+                    {/* <Seagull /> */}
                 </View>
 
         );
@@ -80,9 +82,10 @@ const styles = StyleSheet.create({
         // Fill the entire surface
         width: 1000,
         height: 600,
-        backgroundColor: 'rgba(255, 255, 255, 0.4)',
+        //backgroundColor: 'rgba(255, 255, 255, 0.4)',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: 'red'
     },
     // greetingBox: {
     //     //   padding: 100,
@@ -92,9 +95,18 @@ const styles = StyleSheet.create({
     //     //   fontSize: 1000,
     // },
     greeting: {
-        fontSize: 150,
+        fontSize: 180,
         color: 'rgb(5, 93, 119)',
+         justifyContent: 'center',
+        alignItems: 'center',
     },
+    viewStandard: {
+        // width: 10000,
+        // height: 10000,
+        // justifyContent: 'center',
+        // alignItems: 'center',
+        backgroundColor: 'rgba(255, 280, 255, 0.4)',
+    }
 });
 
 

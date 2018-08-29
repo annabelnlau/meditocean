@@ -12,13 +12,16 @@ import {
 
 // Components
 import Beach from './components/beach';
+import UnderwaterEntry from './components/underwaterEntry';
+import Seagull from './components/seagull';
 
 export default class RatherBeHere extends React.Component {
   render() {
     return (
-        <Beach />
+      <Beach />
     );
   }
 };
 
 AppRegistry.registerComponent('RatherBeHere', () => RatherBeHere);
+AppRegistry.registerComponent('UnderwaterEntry', () => UnderwaterEntry);

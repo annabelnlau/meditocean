@@ -1,7 +1,10 @@
 // This file contains the boilerplate to execute your React app.
 // If you want to modify your application's content, start in "index.js"
 
-import {ReactInstance} from 'react-360-web';
+import {ReactInstance, Surface} from 'react-360-web';
+
+const leftPanel = new Surface(1000, 200, Surface.SurfaceShape.Flat);
+leftPanel.setAngle(-2, 0);
 
 function init(bundle, parent, options = {}) {
   const r360 = new ReactInstance(bundle, parent, {
@@ -14,6 +17,11 @@ function init(bundle, parent, options = {}) {
   r360.renderToSurface(
     r360.createRoot('RatherBeHere', { /* initial props */ }),
     r360.getDefaultSurface()
+  );
+
+  r360.renderToSurface(
+    r360.createRoot('UnderwaterEntry'),
+    leftPanel,
   );
 
   // Load the initial environment
