@@ -11,9 +11,9 @@ export default class Seagull extends React.Component {
     render() {
         return (
         
-            <View style={styles.panel}>
+            <View>
                <Image 
-                  style={{width: 100, height: 100, transform: [{ translate: [-300, 300, 0] }] }} 
+                  style={{width: 100, height: 100, transform: [{ translate: [-100, 300, 0] }] }} 
                   source={asset('seagull.png')} 
                 />
             </View>

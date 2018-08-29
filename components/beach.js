@@ -15,7 +15,7 @@ import {
 import Underwater from './underwater';
 import Seagull from './seagull';
 import UnderwaterSurface from './underwaterSurface';
-import Breathe from './breathe';
+import Relax from './relax';
 
 export default class Beach extends React.Component {
     componentDidMount() {
@@ -28,8 +28,7 @@ export default class Beach extends React.Component {
     render() {
         return (
             <View>
-                <Breathe />
-                <Seagull />
+                <Relax />
             </View>
         );
     }

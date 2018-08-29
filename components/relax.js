@@ -16,7 +16,7 @@ import Underwater from './underwater';
 import Seagull from './seagull';
 import UnderwaterSurface from './underwaterSurface';
 
-export default class Breathe extends React.Component {
+export default class Relax extends React.Component {
     state = {
         buttonClicked: false,
         seconds: 61,
@@ -47,9 +47,10 @@ export default class Breathe extends React.Component {
                     <View style={styles.greetingBox}>
                         <VrButton onClick={this.handleClick}>
                             <Text style={styles.greeting}>
-                                Breathe
+                                Relax
                             </Text>
                         </VrButton>
+                        <Seagull />
                     </View>
                 </View>
                 :
@@ -60,6 +61,7 @@ export default class Breathe extends React.Component {
                                 {this.state.seconds}
                             </Text>
                         </VrButton>
+                        <Seagull />
                     </View>
                 </View>
 
@@ -75,7 +77,8 @@ const styles = StyleSheet.create({
         //backgroundColor: 'rgba(255, 255, 255, 0.4)',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'red'
+        transform: [{ translate: [0, 20, 0] }]
+        // backgroundColor: 'red'
     },
     // greetingBox: {
     //     //   padding: 100,
@@ -87,7 +90,7 @@ const styles = StyleSheet.create({
     greeting: {
         fontSize: 180,
         color: 'rgb(5, 93, 119)',
-         justifyContent: 'center',
+        justifyContent: 'center',
         alignItems: 'center',
     },
 });

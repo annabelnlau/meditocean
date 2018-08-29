@@ -11,7 +11,6 @@ import {
 
 export default class Underwater extends React.Component {
   componentDidMount() {
-
     const { AudioModule } = NativeModules;
     AudioModule.playEnvironmental({
       source: asset('water_sounds.m4a'),
